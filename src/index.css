@@ -12,6 +12,10 @@ img{
     width: 100%;
 }
 
+a{
+    text-decoration: none;
+}
+
 .container{
     width: 100%;
     max-width: 960px;
@@ -64,4 +68,38 @@ img{
 .hero-container img{
     justify-self: end;
     width: 200px;
+}
+
+/* Register and Login Page */
+section.flex{
+    height: 100vh;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.form-group input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn{
+    padding: 13px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }

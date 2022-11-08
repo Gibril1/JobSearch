@@ -1,20 +1,20 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import LogPic from '../assets/users.png'
 
 
 const LoginPage = () => {
   return (
     <>
-        <Navbar/>
-        <main className="logpage">
-        <section className="grid container">
-            <div className="logimage">
-                <img src={LogPic} alt="" />
-            </div>
-            <div className="form">
+        
+        <main>
+            <section className="grid container flex">
+                <div>
+                    <img src={LogPic} alt="" />
+                </div>
+                
                 <form>
-                    <div className="form-group flex">
+                    <h1>Log In</h1>
+                    <div className="form-group">
                         <label htmlFor="username">Username</label>
                         <input 
                             type="text" 
@@ -23,7 +23,7 @@ const LoginPage = () => {
                             className='formControl'
                         />
                     </div>
-                    <div className="form-group flex">
+                    <div className="form-group">
                         <label htmlFor="password">Password</label>
                         <input 
                             type="password" 
@@ -34,11 +34,13 @@ const LoginPage = () => {
                     </div>
                     
                     <div className="form-group">
-                        <button type="submit">Login</button>
+                        <button 
+                            type="submit" className='btn'
+                            >Login</button>
                     </div>
                 </form>
-            </div>
-        </section>
+                
+            </section>
     </main>
     </>
   )

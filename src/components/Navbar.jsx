@@ -1,14 +1,27 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <nav className="navbar">
         <div className="container flex">
-            <h1>Job 360</h1>
+            <h1>
+              <Link to='/'>Job 360</Link>
+            </h1>
             <ul>
-                <li>Home</li>
-                <li>Login</li>
-                <li>Register</li>
+              <li>
+                <Link to='/'>Home</Link>
+              </li>
+              <li>
+              <Link to='/login'>Login</Link>
+
+              </li>
+              <li>
+              <Link to='/register'>Register</Link>
+
+
+              </li>
+                
             </ul>
         </div>
     </nav>
