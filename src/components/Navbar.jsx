@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaTenge, FaUser, FaSignInAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
@@ -6,18 +7,22 @@ const Navbar = () => {
     <nav className="navbar">
         <div className="container flex">
             <h1>
-              <Link to='/'>Job 360</Link>
+              <Link to='/'>
+                <FaTenge/>Job 360
+              </Link>
             </h1>
             <ul>
               <li>
                 <Link to='/'>Home</Link>
               </li>
               <li>
-              <Link to='/login'>Login</Link>
+              <Link to='/login'>
+                <FaSignInAlt/>Login
+                </Link>
 
               </li>
               <li>
-              <Link to='/register'>Register</Link>
+              <Link to='/register'><FaUser/>Register</Link>
 
 
               </li>

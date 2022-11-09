@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaUserTie, FaEyeSlash } from 'react-icons/fa'
 import LogPic from '../assets/users.png'
 
 
@@ -15,7 +16,9 @@ const LoginPage = () => {
                 <form>
                     <h1>Log In</h1>
                     <div className="form-group">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">
+                            <FaUserTie/>Username
+                            </label>
                         <input 
                             type="text" 
                             name="username" 
@@ -24,7 +27,7 @@ const LoginPage = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password"><FaEyeSlash/>Password</label>
                         <input 
                             type="password" 
                             name="password" 

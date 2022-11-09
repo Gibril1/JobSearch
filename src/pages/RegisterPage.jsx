@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaUserTie, FaEnvelopeOpen, FaEyeSlash } from 'react-icons/fa'
 import LogPic from '../assets/users.png'
 
 
@@ -15,7 +16,9 @@ const RegisterPage = () => {
             <form>
                 <h1>Join Us Today</h1>
                 <div className="form-group">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">
+                    <FaUserTie/>Username
+                    </label>
                     <input 
                         type="text" 
                         name="username" 
@@ -24,7 +27,8 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">
+                        <FaEnvelopeOpen/>Email</label>
                     <input 
                         type="email" 
                         name="email" 
@@ -33,7 +37,8 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">
+                        <FaEyeSlash/>Password</label>
                     <input 
                         type="password" 
                         name="password" 
@@ -42,7 +47,7 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password2">Confirm Password</label>
+                    <label htmlFor="password2"><FaEyeSlash/>Confirm Password</label>
                     <input 
                         type="password" 
                         name="password2" 
