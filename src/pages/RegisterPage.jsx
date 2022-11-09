@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FaUserTie, FaEnvelopeOpen, FaEyeSlash } from 'react-icons/fa'
+import {  FaEnvelopeOpen, FaEyeSlash } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import LogPic from '../assets/users.png'
@@ -11,13 +11,18 @@ import { register, reset } from '../features/auth/authSlice'
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
-        username:'',
+        firstName:'',
+        lastName:'',
+        otherName:'',
+        dob:'',
+        age:'',
         password:'',
+        password2:'',
         email:'',
-        password2:''
+       
     })
 
-    const { name, email, password, password2 } = formData
+    const { firstName, lastName, otherName, dob, age, email, password, password2 } = formData
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -48,7 +53,7 @@ const RegisterPage = () => {
         if(password !== password2){
             toast.error('Passwords do not match')
         } else{
-            const userData = { name, email, password }
+            const userData = { firstName, lastName, otherName, dob, age, email, password }
             dispatch(register(userData))
         }
     }
@@ -64,13 +69,61 @@ const RegisterPage = () => {
             <form onSubmit={handleSubmit}>
                 <h1>Join Us Today</h1>
                 <div className="form-group">
-                    <label htmlFor="username">
-                    <FaUserTie/>Username
+                    <label htmlFor="firstName">
+                    FirstName
                     </label>
                     <input 
                         type="text" 
-                        name="username" 
-                        id="username"
+                        name="firstName" 
+                        id="firstName"
+                        className='formControl'
+                        onChange={onChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="lastName">
+                    LastName
+                    </label>
+                    <input 
+                        type="text" 
+                        name="lastName" 
+                        id="lastName"
+                        className='formControl'
+                        onChange={onChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="otherName">
+                    OtherName
+                    </label>
+                    <input 
+                        type="text" 
+                        name="otherName" 
+                        id="otherName"
+                        className='formControl'
+                        onChange={onChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="age">
+                    Age
+                    </label>
+                    <input 
+                        type="number" 
+                        name="age" 
+                        id="age"
+                        className='formControl'
+                        onChange={onChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="dob">
+                    Date Of Birth
+                    </label>
+                    <input 
+                        type="date" 
+                        name="dob" 
+                        id="dob"
                         className='formControl'
                         onChange={onChange}
                     />

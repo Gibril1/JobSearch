@@ -11,7 +11,7 @@ import LoginPage from "./pages/LoginPage";
 function App() {
   return (
     <>
-    {/* <HomePage/> */}
+    
       <Router>
         <div className="container">
           <Routes>

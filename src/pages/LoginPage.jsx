@@ -10,11 +10,11 @@ import LogPic from '../assets/users.png'
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
-        username:'',
+        email:'',
         password:''
     })
 
-    const { username, password } = formData
+    const { email, password } = formData
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -43,10 +43,11 @@ const LoginPage = () => {
       const handleSubmit = (e) => {
         e.preventDefault()
         const userData = {
-          username,
+          email,
           password
         }
-    
+        
+        console.log(userData)
         dispatch(login(userData))
       }
 
@@ -67,13 +68,13 @@ const LoginPage = () => {
                 <form onSubmit={handleSubmit}>
                     <h1>Log In</h1>
                     <div className="form-group">
-                        <label htmlFor="username">
-                            <FaUserTie/>Username
+                        <label htmlFor="email">
+                            <FaUserTie/>Email
                             </label>
                         <input 
-                            type="text" 
-                            name="username" 
-                            id="username"
+                            type="email" 
+                            name="email" 
+                            id="email"
                             className='formControl'
                             onChange={onChange}
                         />
