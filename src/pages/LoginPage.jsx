@@ -26,7 +26,7 @@ const LoginPage = () => {
           toast.error(message)
         }
         if(isSuccess || user){
-          navigate('/')
+          navigate('/jobs')
         }
     
         dispatch(reset())
