@@ -5,6 +5,6 @@ import jobReducer from '../features/jobs/jobSlice'
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    jobs: jobReducer
+    job: jobReducer
   },
 });

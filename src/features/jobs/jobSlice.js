@@ -25,7 +25,7 @@ export const createJob = createAsyncThunk('job/create', async(job, thunkAPI) => 
     }
 })
 
-// Create Jobs
+// Update Jobs
 export const updateJob = createAsyncThunk('job/update', async(job, id, thunkAPI) => {
     try{
         const token = thunkAPI.getState().auth.user.token

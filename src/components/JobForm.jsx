@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { createJob } from '../features/jobs/jobSlice'
+import { createJob, getJob } from '../features/jobs/jobSlice'
 import Navbar from './Navbar'
 
 
@@ -14,24 +14,25 @@ const JobForm = () => {
     name:'',
     location:'',
     jobPosition:'',
-    image:''
   })
 
-  const { name, location, jobPosition, image } = formData
+ 
+
+  const { name, location, jobPosition} = formData
   
   
   const handleSubmit = (e) => {
     e.preventDefault()
+
     const jobData = {
-      name,
-      location,
-      jobPosition,
-      image
+      'name': name,
+      'location': location,
+      'jobPosition': jobPosition 
     }
-    console.log(jobData)
+    
     dispatch(createJob(jobData))
     navigate('/jobs')
-    
+    dispatch(getJob())
   }
 
   const onChange = (e) => {
@@ -70,17 +71,6 @@ const JobForm = () => {
               name="jobPosition" 
               id="jobPosition"
               placeholder='Which job position did you apply for'
-              className='formControl'
-              onChange={onChange} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="cv">Submit your CV here</label>
-            <input 
-              type="file" 
-              alt='CV'
-              name="image" 
-              id="image"
-              placeholder='Drop your CV file here'
               className='formControl'
               onChange={onChange} />
           </div>

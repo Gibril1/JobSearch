@@ -4,7 +4,7 @@ import { FaUserTie, FaEyeSlash } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { reset, login } from '../features/auth/authSlice'
+import {   login } from '../features/auth/authSlice'
 import LogPic from '../assets/users.png'
 
 
@@ -29,7 +29,7 @@ const LoginPage = () => {
           navigate('/jobs')
         }
     
-        dispatch(reset())
+        // dispatch(reset())
     
       }, [user, isError, isSuccess, message, navigate, dispatch])
     

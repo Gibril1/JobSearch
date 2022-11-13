@@ -1,18 +1,18 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5000/api/job/'
+const API_URL = '/api/job/'
 
 const createJob = async(jobData, token) => {
 
     const config = {
         headers : {
             Authorization: `Bearer ${token}`,
-            "Content-type": "application/json",
+            
         }
     }
+    
 
     const response = await axios.post(API_URL, jobData, config)
-    console.log(response)
     return response.data
 }
 
@@ -25,7 +25,6 @@ const getJob = async(token) => {
     }
 
     const response = await axios.get(API_URL, config)
-
     return response.data
 }
 
