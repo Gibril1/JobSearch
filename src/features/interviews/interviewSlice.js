@@ -39,6 +39,35 @@ export const updateInterview = createAsyncThunk('interview/update', async(interv
     }
 })
 
+// Get Interview
+export const getInterview = createAsyncThunk('interview/get', async(_, thunkAPI) => {
+    try{
+        const token = thunkAPI.getState().auth.user.token
+        return await interviewService.getInterview(token)
+    }catch(error){
+        const message = (error.response &&
+            error.response.data &&
+            error.response.data.message)||
+            error.message||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+// Delete Interview
+export const deleteInterview = createAsyncThunk('interview/delete', async(id, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await interviewService.deleteInterview(id, token)
+    } catch (error) {
+        const message = (error.response &&
+            error.response.data &&
+            error.response.data.message)||
+            error.message||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
 export const interviewSlice = createSlice({
     name:'interview',
     initialState,
