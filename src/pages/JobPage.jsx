@@ -1,9 +1,10 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import {  Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import { getJob } from '../features/jobs/jobSlice'
+import JobComponent from '../components/JobComponent'
+import { getJobs, reset } from '../features/jobs/jobSlice'
 
 
 
@@ -15,11 +16,18 @@ const JobPage = () => {
     navigate('/create-jobs')
   }
 
+  
+
   useEffect(() => {
-    dispatch(getJob())
+    dispatch(getJobs())
+    dispatch(reset())
   }, [dispatch])
 
-  const { jobs } = useSelector((state) => state.job)
+  const { jobs, isLoading } = useSelector((state) => state.job)
+
+  if(isLoading){
+    <div>Loading...</div>
+  }
 
   return (
     <>
@@ -31,15 +39,13 @@ const JobPage = () => {
 
         <div>
           { jobs.map((job) => (
-            <>
-              <div key={job.id}>
-                <h3>{ job.name}</h3>
-                <p>{ job.location }</p>
-                <p>{ job.jobPosition }</p>
-              </div>
-              <br /><br /><br />
-              <hr />
-            </>
+              <Link to={`/interviews/${job._id}`}>
+                <JobComponent key={job._id} job={job}/>
+
+              </Link>
+
+              
+            
           ))}
         </div>    
     </>

@@ -10,10 +10,10 @@ const initialState = {
 }
 
 // Create Interviews
-export const createInterview = createAsyncThunk('interview/create', async(interview, id, thunkAPI) => {
+export const createInterview = createAsyncThunk('interview/create', async(interviewData, id, thunkAPI) => {
     try{
         const token = thunkAPI.getState().auth.user.token
-        return await interviewService.createInterview(interview, id, token)
+        return await interviewService.createInterview(interviewData, id, token)
     }catch(error){
         const message = (error.response &&
             error.response.data &&

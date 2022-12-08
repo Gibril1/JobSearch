@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import JobPage from './pages/JobPage';
 import JobForm from './components/JobForm';
 import InterviewForm from './components/InterviewForm';
+import InterviewPage from './pages/InterviewPage';
 
 
 
@@ -18,12 +19,13 @@ function App() {
       <Router>
         <div className="container">
           <Routes>
-            <Route path= '/' element={<HomePage/>}></Route>
+            <Route exact path= '/' element={<HomePage/>}></Route>
+            <Route exact path= '/interviews/:id' element={<InterviewPage/>}></Route>
             <Route path= '/login' element={<LoginPage/>}></Route>
             <Route path= '/register' element={<RegisterPage/>}></Route>
             <Route path= '/jobs' element={<JobPage/>}></Route>
             <Route path= '/create-jobs' element={<JobForm/>}></Route>
-            <Route path= '/create-interviews' element={<InterviewForm/>}></Route>
+            <Route path= '/create-interviews/:id' element={<InterviewForm/>}></Route>
           </Routes>
         </div>
       </Router>

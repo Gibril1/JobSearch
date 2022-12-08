@@ -16,7 +16,7 @@ const createJob = async(jobData, token) => {
     return response.data
 }
 
-const getJob = async(token) => {
+const getJobs = async(token) => {
 
     const config = {
         headers : {
@@ -25,6 +25,19 @@ const getJob = async(token) => {
     }
 
     const response = await axios.get(API_URL, config)
+    return response.data
+}
+
+const getJob = async(id, token) => {
+
+    const config = {
+        headers : {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    console.log(`Token passed is ${token}`)
+    console.log(`ID passed is ${id}`)
+    const response = await axios.get(API_URL+id, config)
     return response.data
 }
 
@@ -59,6 +72,7 @@ const deleteJob = async(id, token) => {
 const jobService = {
     createJob,
     updateJob,
+    getJobs,
     getJob,
     deleteJob
 }

@@ -1,13 +1,45 @@
 import React from 'react'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { createInterview } from '../features/interviews/interviewSlice'
 import Navbar from './Navbar'
 
+
+
 const InterviewForm = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { id } = useParams()
+  
+
+  const[formData, setFormData] = useState({
+    description:'',
+    feedback:'',
+    success:''
+  })
+
+  const { description, feedback, success } = formData
+
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const interviewData = {
+      'description':description,
+      'feedback': feedback,
+      'success':success
+    }
+
+    dispatch(createInterview(interviewData, id))
+    navigate(`/interview/${id}`)
   }
+  
 
-  const onChange = () => {
-
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name] : e.target.value
+    }))
   }
   return (
     <>
@@ -35,20 +67,18 @@ const InterviewForm = () => {
              />
         </div>
         <div className="form-group">
+        <input 
+            type="text" 
+            name="success" 
+            id="success"
+            placeholder='What success were you given'
+            className='formControl'
+            onChange={onChange}
+             />
+        </div>
           
-          <input 
-            type="radio" 
-            name="success" 
-            id="true"
-            value='True'
-            className='formControl' />True
-          <input 
-            type="radio" 
-            name="success" 
-            id="false"
-            value='False'
-            className='formControl' />False
-          </div>
+          
+       
           <div className="form-group">
             <button type="submit" className='btn'>Post</button>
           </div>        

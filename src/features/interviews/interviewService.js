@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const API_URL = '/api/interview/'
 
-const createInterview = async(interviewData, token, id) => {
+const createInterview = async(interviewData, id, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`

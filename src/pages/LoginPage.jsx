@@ -47,7 +47,7 @@ const LoginPage = () => {
           password
         }
         
-        console.log(userData)
+        // console.log(userData)
         dispatch(login(userData))
       }
 

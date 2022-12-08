@@ -41,10 +41,24 @@ export const updateJob = createAsyncThunk('job/update', async(job, id, thunkAPI)
 })
 
 // Get Jobs
-export const getJob = createAsyncThunk('job/get', async(_, thunkAPI) => {
+export const getJobs = createAsyncThunk('job/get', async(_, thunkAPI) => {
     try{
         const token = thunkAPI.getState().auth.user.token
-        return await jobService.getJob(token)
+        return await jobService.getJobs(token)
+    }catch(error) {
+        const message = (error.response && 
+            error.response.data && 
+            error.response.data.message)|| 
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+// Get Job
+export const getJob = createAsyncThunk('job/get/id', async(id, thunkAPI) => {
+    try{
+        const token = thunkAPI.getState().auth.user.token
+        return await jobService.getJob(id, token)
     }catch(error) {
         const message = (error.response && 
             error.response.data && 
@@ -100,6 +114,19 @@ export const jobSlice = createSlice({
                 state.jobs = action.payload
             })
             .addCase(getJob.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(getJobs.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(getJobs.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.jobs = action.payload
+            })
+            .addCase(getJobs.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload

@@ -32,7 +32,7 @@ const JobForm = () => {
     
     dispatch(createJob(jobData))
     navigate('/jobs')
-    dispatch(getJob())
+    
   }
 
   const onChange = (e) => {
