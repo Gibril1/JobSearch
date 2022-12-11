@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { createInterview } from '../features/interviews/interviewSlice'
@@ -27,11 +26,15 @@ const InterviewForm = () => {
     const interviewData = {
       'description':description,
       'feedback': feedback,
-      'success':success
+      'success':success,
+      'id':id
     }
 
-    dispatch(createInterview(interviewData, id))
-    navigate(`/interview/${id}`)
+    
+    dispatch(createInterview(interviewData))
+    navigate(`/interviews/${id}`)
+
+    // console.log(id)
   }
   
 

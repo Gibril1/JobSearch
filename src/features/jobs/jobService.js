@@ -35,8 +35,7 @@ const getJob = async(id, token) => {
             Authorization: `Bearer ${token}`
         }
     }
-    console.log(`Token passed is ${token}`)
-    console.log(`ID passed is ${id}`)
+    
     const response = await axios.get(API_URL+id, config)
     return response.data
 }

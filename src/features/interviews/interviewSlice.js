@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { store } from '../../app/store'
 import interviewService from './interviewService'
+
 
 const initialState = {
     interviews:[],
@@ -9,11 +11,15 @@ const initialState = {
     message: ''  
 }
 
+
 // Create Interviews
-export const createInterview = createAsyncThunk('interview/create', async(interviewData, id, thunkAPI) => {
+export const createInterview = createAsyncThunk('interview/create', async(interviewData,thunkAPI) => {
     try{
-        const token = thunkAPI.getState().auth.user.token
-        return await interviewService.createInterview(interviewData, id, token)
+        const token = store.getState().auth.user.token
+        console.log(interviewData)
+        
+        return await interviewService.createInterview(interviewData, token)
+        
     }catch(error){
         const message = (error.response &&
             error.response.data &&
@@ -23,6 +29,9 @@ export const createInterview = createAsyncThunk('interview/create', async(interv
         return thunkAPI.rejectWithValue(message)
     }
 })
+
+        
+    
 
 // Update Interviews
 export const updateInterview = createAsyncThunk('interview/update', async(interview, id, thunkAPI) => {
@@ -40,10 +49,10 @@ export const updateInterview = createAsyncThunk('interview/update', async(interv
 })
 
 // Get Interview
-export const getInterview = createAsyncThunk('interview/get', async(_, thunkAPI) => {
+export const getInterview = createAsyncThunk('interview/get', async(id, thunkAPI) => {
     try{
         const token = thunkAPI.getState().auth.user.token
-        return await interviewService.getInterview(token)
+        return await interviewService.getInterview(id,token)
     }catch(error){
         const message = (error.response &&
             error.response.data &&

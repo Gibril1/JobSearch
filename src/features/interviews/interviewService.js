@@ -2,18 +2,18 @@ import axios from 'axios'
 
 const API_URL = '/api/interview/'
 
-const createInterview = async(interviewData, id, token) => {
+const createInterview = async(interviewData, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-
-    const response = await axios.post(API_URL+id, interviewData, config)
+    
+    const response = await axios.post(API_URL, interviewData, config)
     return response.data
 }
 
-const getInterview = async(token) => {
+const getInterview = async(id, token) => {
 
     const config = {
         headers : {
@@ -21,11 +21,11 @@ const getInterview = async(token) => {
         }
     }
 
-    const response = await axios.get(API_URL, config)
+    const response = await axios.get(API_URL+id, config)
     return response.data
 }
 
-const updateInterview = async(token, interviewData, id) => {
+const updateInterview = async(interviewData, id, token) => {
 
     const config = {
         headers : {
@@ -37,7 +37,7 @@ const updateInterview = async(token, interviewData, id) => {
     return response.data
 
 }
-const deleteInterview = async(token, id) => {
+const deleteInterview = async(id, token) => {
 
     const config = {
         headers : {

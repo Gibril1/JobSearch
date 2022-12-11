@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { createJob, getJob } from '../features/jobs/jobSlice'
+import { createJob } from '../features/jobs/jobSlice'
 import Navbar from './Navbar'
 
 
