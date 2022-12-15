@@ -7,12 +7,12 @@ const createJob = async(jobData, token) => {
     const config = {
         headers : {
             Authorization: `Bearer ${token}`,
-            
         }
     }
     
-
+    console.log(jobData)
     const response = await axios.post(API_URL, jobData, config)
+    console.log(response.data)
     return response.data
 }
 
@@ -40,16 +40,16 @@ const getJob = async(id, token) => {
     return response.data
 }
 
-const updateJob = async(jobData, id, token) => {
+const updateJob = async(jobData, token) => {
 
     const config = {
         headers : {
             Authorization: `Bearer ${token}`
         }
     }
-
-    const response = await axios.put(API_URL+id, jobData, config)
-
+   console.log(jobData)
+    const response = await axios.put(API_URL, jobData, config)
+    console.log(response.data)
 
     return response.data
 }

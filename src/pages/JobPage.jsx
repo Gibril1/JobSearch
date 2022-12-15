@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import JobComponent from '../components/JobComponent'
 import { getJobs, reset } from '../features/jobs/jobSlice'
@@ -39,10 +39,10 @@ const JobPage = () => {
 
         <div>
           { jobs.map((job) => (
-              <Link to={`/interviews/${job._id}`}>
+              
                 <JobComponent key={job._id} job={job}/>
 
-              </Link>
+              
 
               
             

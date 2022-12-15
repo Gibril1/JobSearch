@@ -8,6 +8,8 @@ import JobPage from './pages/JobPage';
 import JobForm from './components/JobForm';
 import InterviewForm from './components/InterviewForm';
 import InterviewPage from './pages/InterviewPage';
+import EditJob from './components/EditJob';
+
 
 
 
@@ -26,6 +28,7 @@ function App() {
             <Route path= '/jobs' element={<JobPage/>}></Route>
             <Route path= '/create-jobs' element={<JobForm/>}></Route>
             <Route path= '/create-interviews/:id' element={<InterviewForm/>}></Route>
+            <Route path='/update-job/:id' element={<EditJob/>}></Route>
           </Routes>
         </div>
       </Router>

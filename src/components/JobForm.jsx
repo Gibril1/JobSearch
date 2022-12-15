@@ -13,8 +13,10 @@ const JobForm = () => {
   const [formData, setFormData] = useState({
     name:'',
     location:'',
-    jobPosition:'',
+    jobPosition:''
   })
+
+  const [file, setFile] = useState(null)
 
  
 
@@ -24,15 +26,20 @@ const JobForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const jobData = {
-      'name': name,
-      'location': location,
-      'jobPosition': jobPosition 
-    }
     
-    dispatch(createJob(jobData))
+    const formData = new FormData()
+    formData.append('image', file)
+    formData.append('name', name)
+    formData.append('location', location)
+    formData.append('jobPosition', jobPosition)
+    console.log(formData)
+    dispatch(createJob(formData))
     navigate('/jobs')
     
+  }
+
+  const onFileChange = (e) => {
+    setFile(e.target.files[0])
   }
 
   const onChange = (e) => {
@@ -73,6 +80,14 @@ const JobForm = () => {
               placeholder='Which job position did you apply for'
               className='formControl'
               onChange={onChange} />
+          </div>
+          <div className="form-group">
+            <input 
+              type="file" 
+              name="image" 
+              id="image"
+              className='formControl'
+              onChange={onFileChange} />
           </div>
           <div className="form-group">
             <button type="submit" className='btn'>Post</button>

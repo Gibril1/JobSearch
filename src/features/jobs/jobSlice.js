@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import jobService from './jobService'
+import { store } from '../../app/store'
 
 const initialState = {
     jobs: [], 
@@ -26,10 +27,10 @@ export const createJob = createAsyncThunk('job/create', async(job, thunkAPI) => 
 })
 
 // Update Jobs
-export const updateJob = createAsyncThunk('job/update', async(job, id, thunkAPI) => {
+export const updateJob = createAsyncThunk('job/update', async(job, thunkAPI) => {
     try{
-        const token = thunkAPI.getState().auth.user.token
-        return await jobService.updateJob(job,id, token)
+        const token = store.getState().auth.user.token
+        return await jobService.updateJob(job,token)
     }catch(error) {
         const message = (error.response && 
             error.response.data && 
@@ -137,8 +138,12 @@ export const jobSlice = createSlice({
             .addCase(updateJob.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = true
-                state.jobs = state.jobs.filter((job) => job._id !== action.payload.id )
-                state.jobs = state.jobs.push(action.payload)
+                let job = state.jobs.find((job) => job._id === action.payload.id)
+                // console.log(job)
+                if(job){
+                    job = action.payload
+                }
+                // console.log(action.payload)
             })
             .addCase(updateJob.rejected, (state, action) => {
                 state.isLoading = false
