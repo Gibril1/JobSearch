@@ -13,11 +13,9 @@ const initialState = {
 
 
 // Create Interviews
-export const createInterview = createAsyncThunk('interview/create', async(interviewData,thunkAPI) => {
+export const createInterview = createAsyncThunk('interview/create', async(interviewData, thunkAPI) => {
     try{
         const token = store.getState().auth.user.token
-        console.log(interviewData)
-        
         return await interviewService.createInterview(interviewData, token)
         
     }catch(error){

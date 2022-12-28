@@ -27,7 +27,7 @@ const InterviewForm = () => {
       'description':description,
       'feedback': feedback,
       'success':success,
-      'id':id
+      'id' : id
     }
 
     

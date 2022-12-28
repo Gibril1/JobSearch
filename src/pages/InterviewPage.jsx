@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import InterviewComponent from '../components/InterviewComponent'
@@ -25,6 +24,8 @@ const InterviewPage = () => {
   const { jobs } = useSelector((state) => state.job )
 
   const { interviews } = useSelector((state) => state.interview )
+
+  
 
   const handleClick = () => {
     navigate(`/create-interviews/${id}`)
