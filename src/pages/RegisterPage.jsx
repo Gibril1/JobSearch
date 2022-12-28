@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import {  FaEnvelopeOpen, FaEyeSlash } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import LogPic from '../assets/users.png'
 import { register, reset } from '../features/auth/authSlice'
 
 
@@ -63,9 +62,6 @@ const RegisterPage = () => {
     <main>
         
         <section className="grid container flex">
-            <div>
-                <img src={LogPic} alt="" />
-            </div>
             <form onSubmit={handleSubmit}>
                 <h1>Join Us Today</h1>
                 <div className="form-group">

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {   login } from '../features/auth/authSlice'
-import LogPic from '../assets/users.png'
+
 
 
 const LoginPage = () => {
@@ -57,15 +57,8 @@ const LoginPage = () => {
     
     
   return (
-    <>
-        
-        <main>
-            <section className="grid container flex">
-                <div>
-                    <img src={LogPic} alt="" />
-                </div>
-                
-                <form onSubmit={handleSubmit}>
+      <>
+        <form onSubmit={handleSubmit} className='flex'>
                     <h1>Log In</h1>
                     <div className="form-group">
                         <label htmlFor="email">
@@ -98,9 +91,7 @@ const LoginPage = () => {
                     </div>
                 </form>
                 
-            </section>
-    </main>
-    </>
+      </>
   )
 }
 
