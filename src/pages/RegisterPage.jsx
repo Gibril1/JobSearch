@@ -58,111 +58,71 @@ const RegisterPage = () => {
     }
   return (
     <>
+    <form onSubmit={handleSubmit} className='flex full-screen'>
+        <h1>Join Us Today</h1>
+        <div className="form-group flex">
+            <label htmlFor="firstName">First Name</label>
+            <input 
+                type="text" 
+                name="firstName" 
+                id="firstName"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <label htmlFor="lastName">Last Name</label>
+            <input 
+                type="text" 
+                name="lastName" 
+                id="lastName"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <label htmlFor="otherName">Other Names</label>
+            <input 
+                type="text" 
+                name="otherName" 
+                id="otherName"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <label htmlFor="email">Email</label>
+            <input 
+                type="email" 
+                name="email" 
+                id="email"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <label htmlFor="password">Password</label>
+            <input 
+                type="password" 
+                name="password" 
+                id="password"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <label htmlFor="password2">Confirm Password</label>
+            <input 
+                type="password" 
+                name="password2" 
+                id="password2"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <label htmlFor="age">Age</label>
+            <input 
+                type="number" 
+                name="age" 
+                id="age"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <button className='btn'>Register</button>
+        </div>
+
+    </form>
         
-    <main>
-        
-        <section className="grid container flex">
-            <form onSubmit={handleSubmit}>
-                <h1>Join Us Today</h1>
-                <div className="form-group">
-                    <label htmlFor="firstName">
-                    FirstName
-                    </label>
-                    <input 
-                        type="text" 
-                        name="firstName" 
-                        id="firstName"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="lastName">
-                    LastName
-                    </label>
-                    <input 
-                        type="text" 
-                        name="lastName" 
-                        id="lastName"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="otherName">
-                    OtherName
-                    </label>
-                    <input 
-                        type="text" 
-                        name="otherName" 
-                        id="otherName"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="age">
-                    Age
-                    </label>
-                    <input 
-                        type="number" 
-                        name="age" 
-                        id="age"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="dob">
-                    Date Of Birth
-                    </label>
-                    <input 
-                        type="date" 
-                        name="dob" 
-                        id="dob"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">
-                        <FaEnvelopeOpen/>Email</label>
-                    <input 
-                        type="email" 
-                        name="email" 
-                        id="email"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">
-                        <FaEyeSlash/>Password</label>
-                    <input 
-                        type="password" 
-                        name="password" 
-                        id="password"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password2"><FaEyeSlash/>Confirm Password</label>
-                    <input 
-                        type="password" 
-                        name="password2" 
-                        id="password2"
-                        className='formControl'
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <button type="submit" className='btn'>Register</button>
-                </div>
-            </form>
-            
-        </section>
-    </main>
+    
     </>
     
   )

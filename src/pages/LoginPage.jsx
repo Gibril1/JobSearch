@@ -58,39 +58,28 @@ const LoginPage = () => {
     
   return (
       <>
-        <form onSubmit={handleSubmit} className='flex'>
-                    <h1>Log In</h1>
-                    <div className="form-group">
-                        <label htmlFor="email">
-                            <FaUserTie/>Email
-                            </label>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            id="email"
-                            className='formControl'
-                            onChange={onChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password"><FaEyeSlash/>Password</label>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="password"
-                            className='formControl'
-                            onChange={onChange}
-
-                        />
-                    </div>
-                    
-                    <div className="form-group">
-                        <button 
-                            type="submit" className='btn'
-                            >Login</button>
-                    </div>
-                </form>
-                
+        <form onSubmit={handleSubmit} className="flex full-screen">
+          <h1>Login</h1>
+          <div className="form-group flex">
+            <label htmlFor="email">Email</label>
+            <input 
+                type="email" 
+                name="email" 
+                id="email"
+                onChange={onChange} />
+          </div>
+          <div className="form-group flex">
+            <label htmlFor="password">Password</label>
+            <input 
+                type="password" 
+                name="password" 
+                id="password"
+                onChange={onChange} />
+        </div>
+        <div className="form-group flex">
+            <button className='btn'>Login</button>
+        </div>
+        </form>
       </>
   )
 }

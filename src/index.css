@@ -1,5 +1,7 @@
 :root{
     --primary-color: #00acee;
+    --light-bg: #f4f4f4;
+    --white-bg: #fff;
 }
 
 *{
@@ -7,7 +9,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
 }
 
 li{
@@ -25,6 +26,10 @@ img{
 
 .primary-color{
     color: var(--primary-color);
+}
+
+.full-screen{
+    height: 100vh;
 }
 
 .home-bg{
@@ -57,6 +62,11 @@ img{
     margin: 0px auto;
 }
 
+.navbar h1{
+    color: var(--white-bg);
+    cursor: pointer;
+}
+
 .navbar ul{
     display: flex;
 }
@@ -66,6 +76,10 @@ img{
     font-size: 20px;
     font-weight: lighter;
     cursor: pointer;
+}
+
+.navbar a{
+    color: #fff;
 }
 
 .navbar li a:hover{
@@ -100,19 +114,47 @@ img{
     font-size: 20px;
 }
 
+.form-group {
+    margin: 15px;
+  }
+  
+  .form-group label{
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 10px;
+    align-self: flex-start;
+  }
+  
+  .form-group input{
+    width: 500px;
+    padding: 10px;
+  }
+  
+
 .btn{
     border: none;
     padding: 13px 20px;
-    border-radius: 50px;
     font-size: 18px;
     cursor: pointer;
     align-self: center;
     justify-self: center;
 }
 
+.form-group .btn{
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+}
+
+.form-group .btn:hover{
+    transform: scale(1.1);
+    transition: 1s ease-in-out;
+}
+
 .btn-primary{
     color: #fff;
     background-color: var(--primary-color);
+    border-radius: 50px;
 }
 
 
