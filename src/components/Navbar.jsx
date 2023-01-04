@@ -16,7 +16,7 @@ const Navbar = () => {
   }
   return (
     <nav className="navbar">
-        <div className="container flex">
+        <div className="container">
             <h1>
               <Link to='/'>
                 <FaTenge/>Job 360
