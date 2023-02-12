@@ -10,9 +10,9 @@ const createJob = async(jobData, token) => {
         }
     }
     
-    console.log(jobData)
+    // console.log(jobData)
     const response = await axios.post(API_URL, jobData, config)
-    console.log(response.data)
+    console.log(response.data.data)
     return response.data
 }
 

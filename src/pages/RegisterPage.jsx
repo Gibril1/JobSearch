@@ -57,7 +57,7 @@ const RegisterPage = () => {
         }
     }
   return (
-    <>
+    <div>
     <form onSubmit={handleSubmit} className='flex full-screen'>
         <h1>Join Us Today</h1>
         <div className="form-group flex">
@@ -121,9 +121,10 @@ const RegisterPage = () => {
         </div>
 
     </form>
+    
         
     
-    </>
+    </div>
     
   )
 }

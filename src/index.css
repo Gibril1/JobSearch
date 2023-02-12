@@ -29,7 +29,7 @@ img{
 }
 
 .full-screen{
-    height: 100vh;
+    height: 100%;
 }
 
 .home-bg{
@@ -51,7 +51,7 @@ img{
 .grid{
     display: grid;
     gap: 30px;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .navbar {
@@ -93,6 +93,7 @@ img{
     height: 70%;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
 
 .showcase h1{
@@ -156,5 +157,7 @@ img{
     background-color: var(--primary-color);
     border-radius: 50px;
 }
+
+
 
 

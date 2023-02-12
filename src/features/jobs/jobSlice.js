@@ -139,11 +139,11 @@ export const jobSlice = createSlice({
                 state.isLoading = false
                 state.isSuccess = true
                 let job = state.jobs.find((job) => job._id === action.payload.id)
-                // console.log(job)
+                
                 if(job){
                     job = action.payload
                 }
-                // console.log(action.payload)
+                
             })
             .addCase(updateJob.rejected, (state, action) => {
                 state.isLoading = false
